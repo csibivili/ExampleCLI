@@ -1,7 +1,7 @@
 {
-  "name": "pizza-cli",
+  "name": "friday-cli",
   "version": "0.0.1",
-  "description": "An example CLI for ordering pizza's",
+  "description": "",
   "main": "./lib/index.js",
   "scripts": {
     "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
@@ -16,10 +16,10 @@
     "typescript",
     "nodejs"
   ],
-  "author": "Jeroen Ouwehand",
+  "author": "Jeroen Ouwehand, Vilmos Csibi",
   "license": "MIT",
   "bin": {
-    "pizza": "./lib/index.js"
+    "friday": "./lib/index.js"
   },
   "dependencies": {
     "chalk": "^2.4.1",
