@@ -26,3 +26,16 @@ test('addDays: if date is 2021-01-23 and 1 day added it should return 2021-01-24
   t.equal(+result, +new Date('2021-01-24'));
   t.end();
 });
+
+test('addDays: if date is 2021-03-28 and 1 day added it should return 2021-03-29', (t: any) => {
+  //arrange
+  const friday = new Friday();
+  const date = new Date('2021-03-28');
+
+  //act
+  const result = friday.addDays(date, 1);
+
+  //assert
+  t.equal(+result, +new Date('2021-03-29'));
+  t.end();
+});

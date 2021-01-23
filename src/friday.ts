@@ -11,7 +11,7 @@ export class Friday {
 
   addDays(date: Date, days: number) {
     const result = new Date(date);
-    result.setDate(result.getDate() + days);
+    result.setTime(result.getTime() + days * 24 * 3600 * 1000);
     return result;
   }
 }
