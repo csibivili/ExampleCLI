@@ -7,4 +7,13 @@ export class Validator {
       throw new Error('The dateformat is invalid.');
     }
   }
+
+  isValidInteger(input: string): number {
+    const parsed: number = parseInt(input);
+    if (!isNaN(parsed)) {
+      return parsed;
+    } else {
+      throw new Error('The provided value is not an integer.');
+    }
+  }
 }

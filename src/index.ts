@@ -17,7 +17,7 @@ program
   .option('-t, --thirteen', 'get the nearest friday the 13th, possible to combine with --from')
   .option('-f, --from <string>', 'from that date format: YYYY-MM-DD')
   .option('-b, --black', 'get the black friday of a year, without --year flag return the current year')
-  .option('-y, --year <number>', 'in that year')
+  .option('-y, --year <string>', 'in that year')
   .parse(process.argv);
 
 try {
@@ -31,7 +31,9 @@ try {
   }
 
   if (black) {
-    const blackFriday = friday.getDateOfBlackFridayByYear(year ? year : new Date().getFullYear());
+    const blackFriday = friday.getDateOfBlackFridayByYear(
+      year ? validator.isValidInteger(year) : new Date().getFullYear()
+    );
     console.log(blackFriday.toLocaleDateString('hu-HU'));
   }
 } catch (error) {
