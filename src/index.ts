@@ -6,6 +6,7 @@ import figlet from 'figlet';
 import program from 'commander';
 
 import { Friday } from './friday/friday';
+import { Validator } from './validator/validator';
 
 clear();
 console.log(chalk.red(figlet.textSync('friday-cli', { horizontalLayout: 'full' })));
@@ -19,17 +20,22 @@ program
   .option('-y, --year <number>', 'in that year')
   .parse(process.argv);
 
-const { thirteen, black, from, year } = program.opts();
-const friday = new Friday();
+try {
+  const { thirteen, black, from, year } = program.opts();
+  const friday = new Friday();
+  const validator = new Validator();
 
-if (thirteen) {
-  const nextFridayThe13th = friday.getNextFridayThe13th(from ? new Date(from) : new Date());
-  console.log(nextFridayThe13th.toLocaleDateString('hu-HU'));
-}
+  if (thirteen) {
+    const nextFridayThe13th = friday.getNextFridayThe13th(from ? new Date(validator.isValidDate(from)) : new Date());
+    console.log(nextFridayThe13th.toLocaleDateString('hu-HU'));
+  }
 
-if (black) {
-  const blackFriday = friday.getDateOfBlackFridayByYear(year ? year : new Date().getFullYear());
-  console.log(blackFriday.toLocaleDateString('hu-HU'));
+  if (black) {
+    const blackFriday = friday.getDateOfBlackFridayByYear(year ? year : new Date().getFullYear());
+    console.log(blackFriday.toLocaleDateString('hu-HU'));
+  }
+} catch (error) {
+  console.log(chalk.red(error.toString()));
 }
 
 if (!process.argv.slice(2).length) {
