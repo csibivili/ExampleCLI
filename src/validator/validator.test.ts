@@ -5,12 +5,13 @@ import { Validator } from './validator';
 test('isValidDate: 2021-01-23 should return true', (t: any) => {
   //arrange
   const validator = new Validator();
+  const input = '2021-01-23';
 
   //act
-  const result = validator.isValidDate('2021-01-23');
+  const result = validator.isValidDate(input);
 
   //assert
-  t.equal(result, true);
+  t.equal(result, input);
   t.end();
 });
 
