@@ -6,7 +6,7 @@ const figlet = require('figlet');
 const path = require('path');
 const program = require('commander');
 
-import { Friday } from './friday';
+import { Friday } from './friday/friday';
 
 clear();
 console.log(chalk.red(figlet.textSync('friday-cli', { horizontalLayout: 'full' })));
