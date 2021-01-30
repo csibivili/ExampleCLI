@@ -39,3 +39,39 @@ test('addDays: if date is 2021-03-28 and 1 day added it should return 2021-03-29
   t.equal(+result, +new Date('2021-03-29'));
   t.end();
 });
+
+test('getDateOfBlackFridayByYear: if year 2017 it should return 2017-11-24', (t: any) => {
+  //arrange
+  const friday = new Friday();
+
+  //act
+  const result = friday.getDateOfBlackFridayByYear(2017);
+
+  //assert
+  t.equal(+result, +new Date('2017-11-24'));
+  t.end();
+});
+
+test('getDateOfBlackFridayByYear: if year 2018 it should return 2018-11-23', (t: any) => {
+  //arrange
+  const friday = new Friday();
+
+  //act
+  const result = friday.getDateOfBlackFridayByYear(2018);
+
+  //assert
+  t.equal(+result, +new Date('2018-11-23'));
+  t.end();
+});
+
+test('getDateOfBlackFridayByYear: if year 2019 it should return 2019-11-29', (t: any) => {
+  //arrange
+  const friday = new Friday();
+
+  //act
+  const result = friday.getDateOfBlackFridayByYear(2019);
+
+  //assert
+  t.equal(+result, +new Date('2018-11-29'));
+  t.end();
+});

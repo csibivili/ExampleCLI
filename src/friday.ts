@@ -9,6 +9,10 @@ export class Friday {
     return this.getNextFridayThe13th(date);
   }
 
+  getDateOfBlackFridayByYear(year: number): Date {
+    return new Date();
+  }
+
   addDays(date: Date, days: number) {
     const result = new Date(date);
     result.setTime(result.getTime() + days * 24 * 3600 * 1000);
