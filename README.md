@@ -1,4 +1,4 @@
-# Pizza CLI
+# Friday CLI
 
 Example TypeScript CLI with Node.js
 

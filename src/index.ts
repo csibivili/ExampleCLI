@@ -14,18 +14,20 @@ console.log(chalk.red(figlet.textSync('friday-cli', { horizontalLayout: 'full' }
 program
   .version('0.0.1')
   .description('Friday CLI')
-  .option('-t, --thirteen', 'get the nearest friday the 13th')
-  .option('-b, --black', 'get the black friday of the given year')
+  .option('-t, --thirteen <type>', 'get the nearest friday the 13th')
+  .option('-b, --black <type>', 'get the black friday of the given year')
   .parse(process.argv);
 
-if (program.thirteen) {
+const { thirteen, black } = program.opts();
+
+if (thirteen) {
   const friday = new Friday();
-  const nextFridayThe13th = friday.getNextFridayThe13th(program.args[0] ? new Date(program.args[0]) : new Date());
+  const nextFridayThe13th = friday.getNextFridayThe13th(thirteen ? new Date(thirteen) : new Date());
   console.log(nextFridayThe13th.toLocaleDateString('hu-HU'));
 }
 
-if (program.black) {
-  console.log(program.opts().black);
+if (black) {
+  console.log(black);
 }
 
 if (!process.argv.slice(2).length) {
