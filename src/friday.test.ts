@@ -72,6 +72,6 @@ test('getDateOfBlackFridayByYear: if year 2019 it should return 2019-11-29', (t:
   const result = friday.getDateOfBlackFridayByYear(2019);
 
   //assert
-  t.equal(+result, +new Date('2018-11-29'));
+  t.equal(+result, +new Date('2019-11-29'));
   t.end();
 });

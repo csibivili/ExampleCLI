@@ -10,7 +10,15 @@ export class Friday {
   }
 
   getDateOfBlackFridayByYear(year: number): Date {
-    return new Date();
+    let date = new Date(`${year}-11-01`);
+    let counter = 0;
+    while (counter < 4) {
+      if (date.getDay() === 4) {
+        counter++;
+      }
+      date = this.addDays(date, 1);
+    }
+    return date;
   }
 
   addDays(date: Date, days: number) {
