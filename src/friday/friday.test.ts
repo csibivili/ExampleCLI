@@ -1,4 +1,5 @@
-const test = require('tape');
+import test from 'tape';
+
 import { Friday } from './friday';
 
 test('getNextFridayThe13th: if from is 2021-01-23 it should return with 2021-08-13', (t: any) => {

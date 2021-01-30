@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
-const chalk = require('chalk');
-const clear = require('clear');
-const figlet = require('figlet');
-const path = require('path');
-const program = require('commander');
+import chalk from 'chalk';
+import clear from 'clear';
+import figlet from 'figlet';
+import program from 'commander';
 
 import { Friday } from './friday/friday';
 
@@ -29,7 +28,6 @@ if (thirteen) {
 }
 
 if (black) {
-  console.log(year);
   const blackFriday = friday.getDateOfBlackFridayByYear(year ? year : new Date().getFullYear());
   console.log(blackFriday.toLocaleDateString('hu-HU'));
 }
