@@ -6,6 +6,8 @@ const figlet = require('figlet');
 const path = require('path');
 const program = require('commander');
 
+import { Friday } from './friday';
+
 clear();
 console.log(chalk.red(figlet.textSync('friday-cli', { horizontalLayout: 'full' })));
 
@@ -16,7 +18,9 @@ program
   .parse(process.argv);
 
 if (program.thirteen) {
-  //return the date of the nearest friday the 13th
+  const friday = new Friday();
+  const nextFridayThe13th = friday.getNextFridayThe13th(program.args[0] ? new Date(program.args[0]) : new Date());
+  console.log(nextFridayThe13th.toLocaleDateString('hu-HU'));
 }
 
 if (!process.argv.slice(2).length) {
