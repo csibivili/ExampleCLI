@@ -14,7 +14,7 @@ program
   .version('0.0.3')
   .description('Friday CLI')
   .option('-t, --thirteen', 'get the nearest friday the 13th, possible to combine with --from')
-  .option('-f, --from <string>', 'from that date')
+  .option('-f, --from <string>', 'from that date format: YYYY-MM-DD')
   .option('-b, --black', 'get the black friday of a year, without --year flag return the current year')
   .option('-y, --year <number>', 'in that year')
   .parse(process.argv);

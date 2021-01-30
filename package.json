@@ -5,9 +5,9 @@
   "main": "./lib/index.js",
   "scripts": {
     "start": "ts-node src/index.ts",
-    "create": "npm run build && npm run test",
+    "create": "npm run test && npm run build",
     "build": "tsc -p .",
-    "test": "ts-node src/**/*.test.ts",
+    "test": "ts-node node_modules/tape/bin/tape src/**/*.test.ts",
     "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
   },
   "keywords": [
