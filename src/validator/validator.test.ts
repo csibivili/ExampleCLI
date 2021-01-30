@@ -15,14 +15,20 @@ test('isValidDate: 2021-01-23 should return true', (t: any) => {
   t.end();
 });
 
-// test('isValidDate: 2021.01.23 should return false', (t: any) => {
-//   //arrange
-//   const validator = new Validator();
+test('isValidDate: 2021.01.23 should throw error', (t: any) => {
+  //arrange
+  const validator = new Validator();
 
-//   //act
-//   const result = validator.isValidDate('2021.01.23');
+  //act
+  t.throws(() => validator.isValidDate('2021.01.23'), 'The dateformat is invalid.');
+  t.end();
+});
 
-//   //assert
-//   t.equal(result, false);
-//   t.end();
-// });
+test('isValidDate: 2021-1-23 should throw error', (t: any) => {
+  //arrange
+  const validator = new Validator();
+
+  //act
+  t.throws(() => validator.isValidDate('2021-1-23'), 'The dateformat is invalid.');
+  t.end();
+});
